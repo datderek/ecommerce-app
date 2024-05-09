@@ -1,8 +1,12 @@
+import Product from "./Product";
+
 function ProductsList({ products }) {
   return (
     <ul>
-      {products.map((product) => {
-        return <li key={product.id}>{product.title}</li>
+      {products.length > 0 && products.map((product) => {
+        return (
+          <Product product={product} />
+        )
       })}
     </ul>
   )
