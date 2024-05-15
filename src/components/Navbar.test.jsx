@@ -2,30 +2,9 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Navbar from './Navbar';
 
-const cart = [
-  {
-    id: 1,
-    category: "men's clothing",
-    title: 'Backpack',
-    price: 37.99,
-  }, 
-  {
-    id: 2,
-    category: 'electronics',
-    title: 'Xbox 360',
-    price: 225.00,
-  },
-  {
-    id: 1,
-    category: "shoes",
-    title: 'New Balance 1080',
-    price: 164.99,
-  }
-]
-
 describe('Navbar component', () => {
   it("renders the links", () => { 
-    render(<Navbar cart={[]}/>, {wrapper: MemoryRouter});
+    render(<Navbar />, {wrapper: MemoryRouter});
 
     const navLinks = screen.getAllByRole('link');
 
@@ -35,7 +14,7 @@ describe('Navbar component', () => {
   });
 
   it("renders the shopping cart button", () => {
-    render(<Navbar cart={[]}/>, {wrapper: MemoryRouter});
+    render(<Navbar />, {wrapper: MemoryRouter});
 
     const shoppingCartButton = screen.getByRole('button', { name: /shopping cart/i });
 
@@ -43,7 +22,7 @@ describe('Navbar component', () => {
   });
 
   it("renders the number of items in the shopping cart", () => {
-    render(<Navbar cart={cart}/>, {wrapper: MemoryRouter});
+    render(<Navbar itemCount={3}/>, {wrapper: MemoryRouter});
 
     const itemCount = screen.getByText(/^3$/);
     expect(itemCount).toBeInTheDocument();
