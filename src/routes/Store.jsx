@@ -11,7 +11,7 @@ function Store() {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetch("https://fakestoreapi.com/products", { signal })
+    fetch("https://fake-coffee-api.vercel.app/api", { signal })
       .then((res) => res.json())
       .then((json) => setProductList(json));
 

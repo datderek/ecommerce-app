@@ -2,11 +2,15 @@ import { useState } from "react";
 
 function Product({ product, handlers }) {
   const [inCart, setInCart] = useState(false);
+
   return (
     <div>
-      <img src={product.image} alt={product.title} />
-      <h4>{product.category}</h4>
-      <h3>{product.title}</h3>
+      <img src={product.image_url} alt={product.name} />
+      <div>
+        {product.flavor_profile?.map(flavor => <h5>{flavor}</h5>)}
+      </div>
+      <h4>{product.region}</h4>
+      <h3>{product.name}</h3>
       <h4>{product.price}</h4>
       {!inCart && (
         <button

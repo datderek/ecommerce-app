@@ -4,8 +4,9 @@ import userEvent from "@testing-library/user-event";
 
 const product = {
   id: 1,
-  category: "men's clothing",
-  title: "Backpack",
+  region: "South America",
+  flavor_profile: ['Citrus', 'Dark Chocolate'],
+  name: "Coffee One",
   price: 37.99,
 };
 
@@ -16,20 +17,23 @@ describe("Product component", () => {
     expect(screen.getByRole("img")).toBeInTheDocument();
   });
 
-  it("renders the title", () => {
+  it("renders the name", () => {
     render(<Product product={product} />);
 
-    expect(screen.getByRole("heading", { level: 3 }).textContent).toMatch(
-      /Backpack/i
-    );
+    expect(screen.getByRole("heading", { level: 3 }).textContent).toMatch(/Coffee One/i);
   });
 
-  it("renders the category", () => {
+  it('renders the flavor profiles', () => {
     render(<Product product={product} />);
 
-    expect(
-      screen.getByRole("heading", { name: /men's clothing/i, level: 4 })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Dark Chocolate/i, level: 4 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Citrus/i, level: 4 })).toBeInTheDocument();
+  })
+
+  it("renders the region", () => {
+    render(<Product product={product} />);
+
+    expect(screen.getByRole("heading", { name: /South America/i, level: 4 })).toBeInTheDocument();
   });
 
   it("renders the price", () => {
