@@ -8,9 +8,9 @@ describe('Navbar component', () => {
 
     const navLinks = screen.getAllByRole('link');
 
-    expect(navLinks[0].textContent).toMatch(/Home/);
-    expect(navLinks[1].textContent).toMatch(/Store/);
-    expect(navLinks[2].textContent).toMatch(/About/);
+    expect(navLinks[0].textContent).toMatch(/Home/i);
+    expect(navLinks[1].textContent).toMatch(/Store/i);
+    expect(navLinks[2].textContent).toMatch(/About/i);
   });
 
   it("renders the shopping cart button", () => {

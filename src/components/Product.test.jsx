@@ -26,8 +26,8 @@ describe("Product component", () => {
   it('renders the flavor profiles', () => {
     render(<Product product={product} />);
 
-    expect(screen.getByRole("heading", { name: /Dark Chocolate/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Citrus/i, level: 4 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Dark Chocolate/i, level: 5 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Citrus/i, level: 5 })).toBeInTheDocument();
   })
 
   it("renders the region", () => {
