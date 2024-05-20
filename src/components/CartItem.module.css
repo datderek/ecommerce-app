@@ -1,0 +1,30 @@
+.product {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem 0rem;
+  border-top: 1px solid lightgray;
+}
+
+.product:first-child {
+  border-top: none;
+}
+
+.product-image {
+  width: 50px;
+}
+
+.product-name {
+  margin-right: auto;
+}
+
+.product-price::before {
+  content: '$';
+}
+
+.product-count::before {
+  content: 'x';
+}
+
+

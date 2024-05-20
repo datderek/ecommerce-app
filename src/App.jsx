@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-      <Navbar itemCount={itemCount} handleClick={clickHandler}/>
-      {isCartVisible && <Cart cart={cart}/>}
+      <Navbar itemCount={itemCount} handleClick={clickHandler} />
+      <Cart cart={cart} isVisible={isCartVisible} setIsVisible={clickHandler}/>
       <Outlet context={[cart, setCart]} />
     </>
   )
