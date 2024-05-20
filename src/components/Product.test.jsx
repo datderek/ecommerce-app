@@ -20,28 +20,26 @@ describe("Product component", () => {
   it("renders the name", () => {
     render(<Product product={product} />);
 
-    expect(screen.getByRole("heading", { level: 3 }).textContent).toMatch(/Coffee One/i);
+    expect(screen.getByRole("heading", { level: 2 }).textContent).toMatch(/Coffee One/i);
   });
 
   it('renders the flavor profiles', () => {
     render(<Product product={product} />);
 
-    expect(screen.getByRole("heading", { name: /Dark Chocolate/i, level: 5 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Citrus/i, level: 5 })).toBeInTheDocument();
+    expect(screen.getByText(/Dark Chocolate/i)).toBeInTheDocument();
+    expect(screen.getByText(/Citrus/i)).toBeInTheDocument();
   })
 
   it("renders the region", () => {
     render(<Product product={product} />);
 
-    expect(screen.getByRole("heading", { name: /South America/i, level: 4 })).toBeInTheDocument();
+    expect(screen.getByText(/South America/i)).toBeInTheDocument();
   });
 
   it("renders the price", () => {
     render(<Product product={product} />);
 
-    expect(
-      screen.getByRole("heading", { name: /37.99/i, level: 4 })
-    ).toBeInTheDocument();
+    expect(screen.getByText(/37.99/i)).toBeInTheDocument();
   });
 
   it('renders the "Add to Cart" button', () => {

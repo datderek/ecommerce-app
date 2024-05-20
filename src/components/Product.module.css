@@ -1,0 +1,35 @@
+.product-container {
+
+  background-color: green;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+}
+
+.details-container {
+  padding: 1rem;
+}
+
+.flavor-container {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  overflow: scroll;
+}
+
+.flavor-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.flavor-container > p {
+  background-color: gray;
+  padding: 0rem 0.5rem;
+  text-wrap: nowrap;
+}

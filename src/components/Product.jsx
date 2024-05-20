@@ -1,50 +1,55 @@
 import { useState } from "react";
+import styles from "./Product.module.css";
 
 function Product({ product, handlers }) {
   const [inCart, setInCart] = useState(false);
 
   return (
-    <div>
-      <img src={product.image_url} alt={product.name} />
-      <div>
-        {product.flavor_profile?.map(flavor => <h5>{flavor}</h5>)}
+    <li className={styles['product-container']}>
+      <div className={styles['image-container']}>
+        <img src={product.image_url} alt={product.name} />
       </div>
-      <h4>{product.region}</h4>
-      <h3>{product.name}</h3>
-      <h4>{product.price}</h4>
-      {!inCart && (
-        <button
-          onClick={() => {
-            handlers.addHandler({ ...product, count: '1' });
-            setInCart(true);
-          }}
-        >
-          Add to Cart
-        </button>
-      )}
-      {inCart && (
-        <>
-          <label>
-            Amount:
-            <input
-              type="number"
-              min="1"
-              defaultValue={1}
-              onChange={(e) =>
-                handlers.updateHandler({ ...product, count: e.target.value })
-              }
-            />
-          </label>
-          <button onClick={() => {
-            handlers.removeHandler({...product});
-            setInCart(false);
+      <div className={styles['details-container']}>
+        <div className={styles['flavor-container']}>
+          {product.flavor_profile?.map(flavor => <p>{flavor}</p>)}
+        </div>
+        <p>{product.region}</p>
+        <h2>{product.name}</h2>
+        <p>${product.price}</p>
+        {!inCart && (
+          <button
+            onClick={() => {
+              handlers.addHandler({ ...product, count: '1' });
+              setInCart(true);
             }}
           >
-            Remove from Cart
+            Add to Cart
           </button>
-        </>
-      )}
-    </div>
+        )}
+        {inCart && (
+          <>
+            <label>
+              Amount:
+              <input
+                type="number"
+                min="1"
+                defaultValue={1}
+                onChange={(e) =>
+                  handlers.updateHandler({ ...product, count: e.target.value })
+                }
+              />
+            </label>
+            <button onClick={() => {
+              handlers.removeHandler({ ...product });
+              setInCart(false);
+            }}
+            >
+              Remove from Cart
+            </button>
+          </>
+        )}
+      </div>
+    </li>
   );
 }
 

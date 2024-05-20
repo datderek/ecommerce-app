@@ -11,7 +11,7 @@ describe('ProductsList component', () => {
   it('renders the products array', () => {
     render(<ProductsList products={products} />);
 
-    const renderedProducts = screen.getAllByRole('heading', {level: 3});
+    const renderedProducts = screen.getAllByRole('heading', {level: 2});
 
     expect(renderedProducts.length).toBe(3);
     expect(renderedProducts[0].textContent).toMatch(/Coffee One/i);
