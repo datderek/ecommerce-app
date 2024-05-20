@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import ProductsList from "../components/ProductsList";
+import FilterPanel from "../components/FilterPanel";
+import styles from './Store.module.css';
 
 function Store() {
   const [productList, setProductList] = useState([]);
@@ -50,10 +52,13 @@ function Store() {
   return (
     <>
       <h1>Store Page</h1>
-      <ProductsList
-        products={productList}
-        handlers={{ addHandler, removeHandler, updateHandler }}
-      />
+      <main>
+        <FilterPanel />
+        <ProductsList
+          products={productList}
+          handlers={{ addHandler, removeHandler, updateHandler }}
+        />
+      </main>
     </>
   );
 }
