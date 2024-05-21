@@ -23,30 +23,25 @@ function Store() {
   }, []);
 
   const addHandler = (product) => {
-    const newCart = [...cart];
-    newCart.push(product);
-    setCart(newCart);
-  };
+    const existingProduct = cart.find((p) => p.id === product.id);
+    let updatedCart;
 
-  const removeHandler = (product) => {
-    const cartCopy = [...cart];
-    const newCart = cartCopy.filter(
-      (oldProduct) => oldProduct.id !== product.id
-    );
+    if (existingProduct) {
+      const updatedProduct = { ...existingProduct, count: (Number(existingProduct.count) + Number(product.count)) }
 
-    setCart(newCart);
-  };
+      updatedCart = cart.map((p) => {
+        if (p.id === updatedProduct.id) {
+          return updatedProduct;
+        }
 
-  const updateHandler = (product) => {
-    const newCart = cart.map((oldProduct) => {
-      if (product.id === oldProduct.id) {
-        return product;
-      }
+        return p;
+      })
+    } else {
+      updatedCart = [...cart];
+      updatedCart.push(product);
+    }
 
-      return oldProduct;
-    });
-
-    setCart(newCart);
+    setCart(updatedCart);
   };
 
   return (
@@ -54,9 +49,7 @@ function Store() {
       <h1>Store Page</h1>
       <main>
         <FilterPanel />
-        <ProductsList
-          products={productList}
-          handlers={{ addHandler, removeHandler, updateHandler }}
+        <ProductsList products={productList} addHandler={addHandler}
         />
       </main>
     </>

@@ -42,114 +42,61 @@ describe("Product component", () => {
     expect(screen.getByText(/37.99/i)).toBeInTheDocument();
   });
 
-  it('renders the "Add to Cart" button', () => {
+  it('renders the "Add" button', () => {
     render(<Product product={product} />);
 
     expect(
-      screen.getByRole("button", { name: /Add to Cart/i })
+      screen.getByRole("button", { name: /^Add$/i })
     ).toBeInTheDocument();
   });
 });
 
 describe("Interacting with Product component", () => {
-  it('renders the input and "Remove from Cart" button on click', async () => {
+  it('renders the number input and "Add to Cart" button on click', async () => {
     const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
+    render(<Product product={product} addHandler={addHandler} />);
     const user = userEvent.setup();
 
-    const addButton = screen.getByRole("button", { name: /Add to Cart/i });
+    const addButton = screen.getByRole("button", { name: /Add/i });
     await user.click(addButton);
 
-    expect(screen.getByRole("button", { name: /Remove from Cart/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Add to Cart/i })).toBeInTheDocument();
     expect(screen.getByRole("spinbutton")).toBeInTheDocument();
   });
 
   it('calls the addHandler function when the "Add to Cart" button is clicked', async () => {
     const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
+    render(<Product product={product} addHandler={addHandler} />);
     const user = userEvent.setup();
 
-    const addButton = screen.getByRole("button", { name: /Add to Cart/i });
+    const addButton = screen.getByRole("button", { name: /Add/i });
     await user.click(addButton);
+    const addToCartButton = screen.getByRole("button", { name: /Add to Cart/i });
+    await user.click(addToCartButton);
 
-    expect(addHandler).toHaveBeenCalledWith({ ...product, count: "1" });
+    expect(addHandler).toHaveBeenCalledWith({ ...product, count: '1' });
   });
+
+  it('calls the addHandler with the correct amount', async () => {
+    const addHandler = vi.fn();
+    render(<Product product={product} addHandler={addHandler} />);
+    const user = userEvent.setup();
+
+    const addButton = screen.getByRole("button", { name: /Add/i });
+    await user.click(addButton);
+    const input = screen.getByRole('spinbutton');
+    await user.clear(input);
+    await user.type(input, '5');
+    const addToCartButton = screen.getByRole("button", { name: /Add to Cart/i });
+    await user.click(addToCartButton);
+
+    expect(addHandler).toHaveBeenCalledWith({ ...product, count: '5' });
+  })
 
   it('does not call the addHandler function when the "Add to Cart" button is not clicked', () => {
     const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
+    render(<Product product={product} addHandler={addHandler} />);
 
     expect(addHandler).not.toHaveBeenCalled();
-  });
-
-  it('calls the removeHandler function when the "Remove from Cart" button is clicked', async () => {
-    const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
-    const user = userEvent.setup();
-
-    const addButton = screen.getByRole("button", { name: /Add to Cart/i });
-    await user.click(addButton);
-    const removeButton = screen.getByRole("button", { name: /Remove from Cart/i });
-    await user.click(removeButton);
-
-    expect(removeHandler).toHaveBeenCalledWith({...product});
-  });
-
-  it('does not call the removeHandler function when the "Remove from Cart" button is not clicked', async () => {
-    const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
-    const user = userEvent.setup();
-
-    const addButton = screen.getByRole("button", { name: /Add to Cart/i });
-    await user.click(addButton);
-
-    expect(removeHandler).not.toHaveBeenCalled();
-  });
-
-  it("calls the updateHandler function when the input is changed", async () => {
-    const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
-    const user = userEvent.setup();
-
-    const addButton = screen.getByRole("button", { name: /Add to Cart/i });
-    await user.click(addButton);
-    const input = screen.getByRole("spinbutton");
-    await user.click(input);
-    await user.clear(input);
-    await user.type(input, "3");
-
-    expect(updateHandler).toHaveBeenCalledWith({ ...product, count: "3" });
-  });
-
-  it("does not call the updateHandler function when input is not changed", async () => {
-    const addHandler = vi.fn();
-    const removeHandler = vi.fn();
-    const updateHandler = vi.fn();
-    const handlers = { addHandler, removeHandler, updateHandler };
-    render(<Product product={product} handlers={handlers} />);
-    const user = userEvent.setup();
-
-    const addButton = screen.getByRole("button", { name: /Add to Cart/i });
-    await user.click(addButton);
-
-    expect(updateHandler).not.toHaveBeenCalledWith();
   });
 });

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "./Product.module.css";
 
-function Product({ product, handlers }) {
-  const [inCart, setInCart] = useState(false);
+function Product({ product, addHandler }) {
+  const [isAdding, setIsAdding] = useState(false);
+  const [count, setCount] = useState('1');
 
   return (
     <li className={styles['product-container']}>
@@ -16,17 +17,16 @@ function Product({ product, handlers }) {
         <p>{product.region}</p>
         <h2>{product.name}</h2>
         <p>${product.price}</p>
-        {!inCart && (
+        {!isAdding ? (
           <button
             onClick={() => {
-              handlers.addHandler({ ...product, count: '1' });
-              setInCart(true);
+              setCount('1');
+              setIsAdding(true);
             }}
           >
-            Add to Cart
+            Add
           </button>
-        )}
-        {inCart && (
+        ) : (
           <>
             <label>
               Amount:
@@ -34,17 +34,15 @@ function Product({ product, handlers }) {
                 type="number"
                 min="1"
                 defaultValue={1}
-                onChange={(e) =>
-                  handlers.updateHandler({ ...product, count: e.target.value })
-                }
+                onChange={(e) => setCount(e.target.value)}
               />
             </label>
             <button onClick={() => {
-              handlers.removeHandler({ ...product });
-              setInCart(false);
-            }}
+                addHandler({ ...product, count });
+                setIsAdding(false);
+              }}
             >
-              Remove from Cart
+              Add to Cart
             </button>
           </>
         )}
