@@ -20,7 +20,7 @@ describe("Product component", () => {
   it("renders the name", () => {
     render(<Product product={product} />);
 
-    expect(screen.getByRole("heading", { level: 2 }).textContent).toMatch(/Coffee One/i);
+    expect(screen.getByRole("heading", { level: 3 }).textContent).toMatch(/Coffee One/i);
   });
 
   it('renders the flavor profiles', () => {

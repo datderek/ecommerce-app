@@ -36,7 +36,7 @@ describe('App component', () => {
 
     await user.click(screen.getByRole('link', {name: /Store/i}));
 
-    expect(screen.getByRole('heading').textContent).toMatch(/Store Page/i);
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toMatch(/SHOP/i);
   });
 });
 

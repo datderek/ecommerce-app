@@ -45,14 +45,17 @@ function Store() {
   };
 
   return (
-    <>
-      <h1>Store Page</h1>
-      <main>
+    <main>
+      <div className={styles.header}>
+        <h1>SHOP</h1>
+        <h2>Check out our hand selected coffee beans!</h2>
+      </div>
+      <div className={styles.content}>
         <FilterPanel />
         <ProductsList products={productList} addHandler={addHandler}
         />
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
 

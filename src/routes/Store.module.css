@@ -1,4 +1,28 @@
 main {
+  background-color: var(--ash-gray);
+}
+
+.header {
+  padding-top: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  background-color: var(--midnight-green);
+  color: white;
+}
+
+.header > h1 {
+  font-size: 3rem;
+}
+
+.header > h2 {
+  font-size: 1.125rem;
+}
+
+.content {
+  padding: 1rem;
   display: flex;
   gap: 2rem;
   margin-left: auto;

@@ -16,7 +16,7 @@ function Product({ product, addHandler }) {
             {product.flavor_profile?.map(flavor => <p>{flavor}</p>)}
           </div>
           <p className={styles['product-region']}>{product.region}</p>
-          <h2 className={styles['product-name']}>{product.name}</h2>
+          <h3 className={styles['product-name']}>{product.name}</h3>
         </div>
         {!isAdding ? (
           <div className={styles['details-footer']}>
