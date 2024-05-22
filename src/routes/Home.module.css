@@ -16,7 +16,7 @@
 }
 
 .header-content {
-  margin: 4rem;
+  margin-left: 4rem;
   width: min-content;
 }
 
@@ -31,4 +31,20 @@
 
 .header-content > h3 {
   font-size: 1rem;
+}
+
+.product-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--midnight-green);
+}
+
+.product-preview > h2 {
+  max-width: 1400px;
+  width: 100%;
+  padding-left: 4rem;
+  margin-block: 2rem;
+  color: var(--champagne);
 }

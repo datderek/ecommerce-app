@@ -1,0 +1,25 @@
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--ash-gray);
+}
+
+.carousel {
+  max-width: 1400px;
+  width: max-content;
+  display: flex;
+  gap: 1rem;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem))
+  }
+}
+
+.carousel-item {
+  height: 250px;
+  width: 150px;
+  object-fit: cover;
+}

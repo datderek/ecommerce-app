@@ -1,7 +1,22 @@
 import styles from './Home.module.css';
 import headerBackgroundImage from '../assets/coffee-farm.jpg';
+import InfiniteCarousel from '../components/InfiniteCarousel';
+
+const images = [
+  'https://iili.io/H8Y5Sgj.webp',
+  'https://iili.io/H8Y7EhP.webp',
+  'https://iili.io/H8Y7GQ1.webp',
+  'https://iili.io/H8Y7Opp.webp',
+  'https://iili.io/H8Y7UCX.webp',
+  'https://iili.io/H8Y7VCF.webp',
+  'https://iili.io/H8Y7X4a.webp',
+  'https://iili.io/H8Y7ckQ.webp',
+  'https://iili.io/H8Y7gGn.webp',
+  'https://iili.io/H8Y7j3J.webp',
+]
 
 function Home() {
+
   return (
     <main>
       <section className={styles.header} style={{ backgroundImage: `url(${headerBackgroundImage})`}}>
@@ -14,7 +29,8 @@ function Home() {
         </div>
       </section>
       <section className={styles['product-preview']}>
-
+        <h2>Check out some of our products!</h2>
+        <InfiniteCarousel images={images}/>
       </section>
       <section className={styles.blog}>
 
