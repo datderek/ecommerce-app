@@ -20,7 +20,7 @@ describe('App component', () => {
   });
 
   it('renders Home page on initial load', () => {
-    expect(screen.getByRole('heading').textContent).toMatch(/Home Page/i);
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toMatch(/Cuppa Joe/i);
   });
 
   it('renders About page on click', async () => {
