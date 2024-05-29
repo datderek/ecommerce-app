@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 import styles from "./Cart.module.css"
 import closeIcon from '../assets/close.svg';
 
-function Cart({ cart, isVisible, setIsVisible }) {
+function Cart({ cart, setCart, isVisible, setIsVisible }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -14,6 +14,28 @@ function Cart({ cart, isVisible, setIsVisible }) {
       ref.current?.close();
     }
   }, [isVisible])
+
+  const editHandler = (product) => {
+    let updatedCart = cart.map((p) => {
+      if (p.id === product.id) {
+        return product;
+      }
+
+      return p;
+    });
+
+    setCart(updatedCart);
+  }
+  
+  const removeHandler = (product) => {
+    let updatedCart = cart.filter((p) => {
+      if (p.id !== product.id) {
+        return p;
+      }
+    });
+
+    setCart(updatedCart);
+  }
 
   const totalPrice = (cart.reduce((sum, currentProduct) => sum + (Number(currentProduct.price) * Number(currentProduct.count)), 0)).toFixed(2);
 
@@ -28,7 +50,7 @@ function Cart({ cart, isVisible, setIsVisible }) {
           <>
             <div className={styles['list-container']}>
               <ul>
-                {cart.map(product => <CartItem key={product.id} product={product} />)}
+                {cart.map(product => <CartItem key={product.id} product={product} removeHandler={removeHandler} editHandler={editHandler} />)}
               </ul>
             </div>
             <div className={styles.footer}>

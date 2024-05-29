@@ -15,7 +15,23 @@
   width: 50px;
 }
 
-.product-name {
+.controls-container {
+  font-size: 0.75rem;
+}
+
+.controls-container > button {
+  color: var(--midnight-green);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.controls-container > button:last-child {
+  margin-left: 1rem;
+}
+
+.product-body {
   margin-right: auto;
 }
 
@@ -25,6 +41,32 @@
 
 .product-count::before {
   content: 'x';
+}
+
+.product-count-input-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.product-count-input {
+  width: 50px;
+  text-align: center;
+}
+
+.product-count-button {
+  background: none;
+  border: none;
+  will-change: transform;
+  transition: transform 125ms linear;
+}
+
+.product-count-button:hover {
+  transform: scale(1.25);
+}
+
+.product-count-button > img{
+  width: 16px;
 }
 
 

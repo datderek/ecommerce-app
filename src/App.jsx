@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Navbar itemCount={itemCount} handleClick={clickHandler} />
-      <Cart cart={cart} isVisible={isCartVisible} setIsVisible={clickHandler}/>
+      <Cart cart={cart} setCart={setCart} isVisible={isCartVisible} setIsVisible={clickHandler}/>
       <Outlet context={[cart, setCart]} />
     </>
   )
