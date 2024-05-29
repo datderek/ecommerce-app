@@ -11,7 +11,7 @@ function FilterOptions({ category, options, updateFilterHandler }) {
                 updateFilterHandler(category, option, e.target.checked)
               }}>
               </input>
-              {option}
+              <span className={styles['option-name']}>{option}</span>
             </label>
           </li>
         )

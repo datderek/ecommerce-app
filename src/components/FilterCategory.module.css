@@ -1,0 +1,30 @@
+.filter-category {
+  padding-block: 0.5rem;
+  border-top: 1px solid var(--platinum);
+}
+
+.filter-category:last-child {
+  border-bottom: 1px solid var(--platinum);
+}
+
+.filter-header {
+  display: flex;
+}
+
+.filter-header > img {
+  width: 20px;
+  margin-left: auto;
+}
+
+.filter-header.active > img {
+  transform: rotate(180deg);
+}
+
+.category-name {
+  font-size: 1.125rem;
+  position: relative;
+}
+
+.category-name > img {
+  display: inline-block;
+}

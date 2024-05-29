@@ -1,3 +1,16 @@
 .filter-list {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   list-style: none;
+  padding-inline: 0.25rem;
+  padding-block: 0.5rem;
+  max-height: 250px;
+  overflow: scroll;
+}
+
+.filter-list > li {
+  margin-top: 0.25rem;
+}
+
+.option-name {
+  margin-left: 0.5rem; 
 }
