@@ -32,7 +32,8 @@ function Cart({ cart, isVisible, setIsVisible }) {
               </ul>
             </div>
             <div className={styles.footer}>
-              <div>Total: {totalPrice}</div>
+              <div className={styles['total-wrapper']}>Total: <span className={styles.total}>{totalPrice}</span></div>
+              <button className={styles['checkout-btn']}>Checkout now</button>
             </div>
           </>
         ) : (
