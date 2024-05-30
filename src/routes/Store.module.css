@@ -10,7 +10,7 @@ main {
   align-items: center;
   height: 250px;
   background-color: var(--midnight-green);
-  color: white;
+  color: var(--champagne);
 }
 
 .header > h1 {
