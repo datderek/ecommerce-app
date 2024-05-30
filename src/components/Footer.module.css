@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid var(--platinum);
+  border-top: 1px solid var(--gun-metal);
   color: var(--gun-metal)
 }
 

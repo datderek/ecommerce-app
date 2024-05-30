@@ -1,9 +1,10 @@
 :root {
+  --vermillion: #E64833;
   --gun-metal: #183039;
   --midnight-green: #244855;
-  --vermillion: #E64833;
-  --bole: #874F41;
   --ash-gray: #90AEAD;
-  --champagne: #FBE9D0;
   --platinum: #DEE2E6;
+  --antiflash-white: #EDF2F4;
+  --champagne: #FBE9D0;
+  --bole: #874F41;
 }
