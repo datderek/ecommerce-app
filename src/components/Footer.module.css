@@ -1,0 +1,96 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--platinum);
+  color: var(--gun-metal)
+}
+
+.footer-content-wrapper {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.footer-header {
+  margin-block: 1rem;
+  padding-left: 2rem;
+  font-size: 2rem;
+}
+
+.footer-body {
+  display: flex;
+  width: 100%;
+}
+
+.footer-links-wrapper, .footer-contacts-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footer-links-wrapper {
+  padding-left: 2rem;
+  gap: 2.0rem;
+}
+
+.links-section {
+  height: 100%;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.links-section > .title {
+  font-weight: bold;
+}
+
+.links-list {
+  list-style: none;
+}
+
+.links-list > li {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.links-list > li:hover {
+  text-decoration: underline;
+}
+
+.links-list > li > a {
+  text-decoration: none;
+  color: var(--gun-metal);
+}
+
+.footer-contacts-wrapper {
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--gun-metal);
+}
+
+.footer-contacts-wrapper > p:first-child {
+  font-size: 1.5rem;
+}
+
+.footer-contacts {
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.contact > img {
+  width: 50px;
+  margin: auto;
+}
+
+.copyright {
+  margin-block: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+}
+
+.copyright > img {
+  width: 16px;
+}

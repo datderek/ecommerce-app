@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -18,6 +19,7 @@ function App() {
       <Navbar itemCount={itemCount} handleClick={clickHandler} />
       <Cart cart={cart} setCart={setCart} isVisible={isCartVisible} setIsVisible={clickHandler}/>
       <Outlet context={[cart, setCart]} />
+      <Footer />
     </>
   )
 }
