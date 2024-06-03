@@ -19,6 +19,7 @@
 
 .footer-body {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -26,6 +27,7 @@
   flex: 1;
   display: flex;
   align-items: center;
+  padding: 1rem;
 }
 
 .footer-links-wrapper {
@@ -66,6 +68,10 @@
   border-left: 1px solid var(--gun-metal);
 }
 
+.footer-contacts-wrapper p {
+  text-align: center;
+}
+
 .footer-contacts-wrapper > p:first-child {
   font-size: 1.5rem;
 }
@@ -93,4 +99,19 @@
 
 .copyright > img {
   width: 16px;
+}
+
+@media (max-width: 700px) {
+  .footer-contacts-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    border-left: none;
+    border-top: 1px solid var(--gun-metal);
+  }
+}
+
+@media (max-width: 575px) {
+  .footer {
+    padding-bottom: 65px;
+  }
 }
