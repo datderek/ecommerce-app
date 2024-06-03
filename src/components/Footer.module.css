@@ -102,6 +102,14 @@
 }
 
 @media (max-width: 700px) {
+  .footer-header {
+    padding-left: 1rem;
+  }
+  
+  .footer-links-wrapper {
+    padding-left: 1rem;
+  }
+
   .footer-contacts-wrapper {
     flex-direction: column;
     justify-content: center;
@@ -113,5 +121,13 @@
 @media (max-width: 575px) {
   .footer {
     padding-bottom: 65px;
+  }
+
+  .contact > img {
+    width: 40px;
+  }
+
+  .contact > div {
+    font-size: 0.875rem;
   }
 }
