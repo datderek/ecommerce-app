@@ -33,11 +33,15 @@ function Home() {
         </div>
       </section>
       <section className={styles['product-preview']}>
-        <h2>Check out some of our products!</h2>
+        <div className={styles['section-header-wrapper']}>
+          <h2>Check out some of our products!</h2>
+        </div>
         <InfiniteCarousel images={images} />
       </section>
       <section className={styles.blog}>
-        <h2>Posts from our community</h2>
+        <div className={styles['section-header-wrapper']}>
+          <h2>Posts from our community</h2>
+        </div>
         <div className={styles['posts-wrapper']}>
           <Post
             title={'Where Our Beans Come From'}
