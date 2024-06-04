@@ -53,3 +53,13 @@
   margin-top: 1.125rem;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+@media (max-width: 575px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .section:first-child {
+    flex-direction: column-reverse;
+  }
+}
