@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import FilterCategory from './FilterCategory.jsx';
 import styles from './FilterPanel.module.css';
 
-function FilterPanel({ filterOptions, updateFilterHandler }) {
+function FilterPanel({ filterOptions, selectedFilterOptions, updateFilterHandler }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
   const [isActive, setIsActive] = useState(false);
 
@@ -21,9 +21,13 @@ function FilterPanel({ filterOptions, updateFilterHandler }) {
   }
 
   const flavorProfiles = Array.from(filterOptions.flavorProfiles);
+  const selectedFlavorProfiles = selectedFilterOptions.flavorProfiles;
   const grindOptions = Array.from(filterOptions.grindOptions);
+  const selectedGrindOptions = selectedFilterOptions.grindOptions;
   const regions = Array.from(filterOptions.regions);
+  const selectedRegions = selectedFilterOptions.regions;
   const roastLevels = [1, 2, 3, 4, 5];
+  const selectedRoastLevels = selectedFilterOptions.roastLevels;
 
   if (isMobile) {
     return (
@@ -33,20 +37,20 @@ function FilterPanel({ filterOptions, updateFilterHandler }) {
           {isActive ? 'Hide Filters' : 'Show Filters'}
         </div>
         {isActive && <div className={styles.filters}>
-          <FilterCategory category={'flavorProfiles'} options={flavorProfiles} updateFilterHandler={updateFilterHandler}>Flavor Profile</FilterCategory>
-          <FilterCategory category={'grindOptions'} options={grindOptions} updateFilterHandler={updateFilterHandler}>Grind Options</FilterCategory>
-          <FilterCategory category={'roastLevels'} options={roastLevels} updateFilterHandler={updateFilterHandler}>Roast Levels</FilterCategory>
-          <FilterCategory category={'regions'} options={regions} updateFilterHandler={updateFilterHandler}>Regions</FilterCategory>
+          <FilterCategory category={'flavorProfiles'} options={flavorProfiles} selectedOptions={selectedFlavorProfiles} updateFilterHandler={updateFilterHandler}>Flavor Profile</FilterCategory>
+          <FilterCategory category={'grindOptions'} options={grindOptions} selectedOptions={selectedGrindOptions} updateFilterHandler={updateFilterHandler}>Grind Options</FilterCategory>
+          <FilterCategory category={'roastLevels'} options={roastLevels} selectedOptions={selectedRoastLevels} updateFilterHandler={updateFilterHandler}>Roast Levels</FilterCategory>
+          <FilterCategory category={'regions'} options={regions} selectedOptions={selectedRegions} updateFilterHandler={updateFilterHandler}>Regions</FilterCategory>
         </div>}
       </div>
     )
   } else {
     return (
       <div className={styles['filter-panel-sidebar']}>
-      <FilterCategory category={'flavorProfiles'} options={flavorProfiles} updateFilterHandler={updateFilterHandler}>Flavor Profile</FilterCategory>
-      <FilterCategory category={'grindOptions'} options={grindOptions} updateFilterHandler={updateFilterHandler}>Grind Options</FilterCategory>
-      <FilterCategory category={'roastLevels'} options={roastLevels} updateFilterHandler={updateFilterHandler}>Roast Levels</FilterCategory>
-      <FilterCategory category={'regions'} options={regions} updateFilterHandler={updateFilterHandler}>Regions</FilterCategory>
+      <FilterCategory category={'flavorProfiles'} options={flavorProfiles} selectedOptions={selectedFlavorProfiles} updateFilterHandler={updateFilterHandler}>Flavor Profile</FilterCategory>
+      <FilterCategory category={'grindOptions'} options={grindOptions} selectedOptions={selectedGrindOptions} updateFilterHandler={updateFilterHandler}>Grind Options</FilterCategory>
+      <FilterCategory category={'roastLevels'} options={roastLevels} selectedOptions={selectedRoastLevels} updateFilterHandler={updateFilterHandler}>Roast Levels</FilterCategory>
+      <FilterCategory category={'regions'} options={regions} selectedOptions={selectedRegions} updateFilterHandler={updateFilterHandler}>Regions</FilterCategory>
       </div>
     )
   }

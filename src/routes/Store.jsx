@@ -119,7 +119,7 @@ function Store() {
         <h2>Check out our hand selected coffee beans!</h2>
       </div>
       <div className={styles.content}>
-        <FilterPanel filterOptions={filterOptions} updateFilterHandler={updateFilterHandler}/>
+        <FilterPanel filterOptions={filterOptions} selectedFilterOptions={selectedFilterOptions} updateFilterHandler={updateFilterHandler}/>
         <ProductsList products={filteredProductList} addHandler={addHandler}
         />
       </div>

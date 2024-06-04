@@ -2,7 +2,7 @@ import { useState } from "react";
 import FilterOptions from "./FilterOptions.jsx";
 import styles from './FilterCategory.module.css';
 
-function FilterCategory({ category, options, updateFilterHandler, children }) {
+function FilterCategory({ category, options, selectedOptions, updateFilterHandler, children }) {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
@@ -18,6 +18,7 @@ function FilterCategory({ category, options, updateFilterHandler, children }) {
       {isActive && <FilterOptions 
         category={category} 
         options={options} 
+        selectedOptions={selectedOptions}
         updateFilterHandler={updateFilterHandler} 
       />}
     </div>
