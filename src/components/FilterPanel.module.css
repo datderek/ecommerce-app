@@ -1,4 +1,37 @@
-.filter-panel {
-  flex: 0 0 275px;
+.filter-panel-sidebar {
+  flex: 0 0 250px;
   color: var(--gun-metal);
+}
+
+.filter-panel-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;  
+  width: 100%;
+  background-color: var(--vermillion);
+  overflow: scroll;
+}
+
+.filter-control {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: var(--champagne);
+}
+
+.filters {
+  height: 100vh;
+  color: var(--champagne);
+}
+
+.filters svg {
+  fill: var(--champagne);
+}
+
+.filter-icon {
+  display: inline-block;
+  width: 20px;
+  margin-right: 0.5rem;
+  fill: var(--champagne);
 }
