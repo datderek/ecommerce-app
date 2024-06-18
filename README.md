@@ -1,5 +1,7 @@
 # ecommerce-app
-
+<p align="center">
+  <img src="https://github.com/datderek/ecommerce-app/assets/88995035/0da6e6d5-8fa5-44a9-9290-844c35d30946" data-canonical-src="https://github.com/datderek/ecommerce-app/assets/88995035/0da6e6d5-8fa5-44a9-9290-844c35d30946"/>
+</p>
 <h2 align="center">For all of your caffeine needs</h2>
 
 Cuppa Joe is a faux e-commerce website that sells coffee beans. The goal of this project
